@@ -14,7 +14,7 @@ namespace ORMEnitityFramework
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Initial Catalog=DBMSLab5;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-BIJFUOL;Initial Catalog=DBMSLab5;Trusted_Connection=True;");
             }
         }
 

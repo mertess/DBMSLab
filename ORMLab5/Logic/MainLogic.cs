@@ -23,29 +23,26 @@ namespace ORMLab5.Logic
 
         public void CreateBook(string Title, string Language, DateTime PublicationDate)
         {
-            Book book = new Book()
+            bookService.Create(new Book()
             {
                 Title = Title,
                 Language = Language,
                 PublicationDate = PublicationDate
-            };
-            bookService.Create(book);
+            });
         }
         
         public void CreateClient(string FullName, string PhoneNumber)
         {
-            Client client = new Client()
+            clientService.Create(new Client()
             {
                 FullName = FullName,
                 PhoneNumber = PhoneNumber
-            };
-            clientService.Create(client);
+            });
         }
 
         public void CreateAuthor(string FullName)
         {
-            Author author = new Author() { FullName = FullName };
-            authorService.Create(author);
+            authorService.Create(new Author() { FullName = FullName });
         }
 
         public void AddAuthorToBook(int authorId, int bookid)
@@ -58,6 +55,21 @@ namespace ORMLab5.Logic
             bookService.AddBookGivenAway(bookId, clientId, returnDate);
         }
 
+        public void DeleteBook(string Title)
+        {
+            bookService.Delete(new Book() { Title = Title });
+        }
+
+        public void DeleteClient(string FullName)
+        {
+            clientService.Delete(new Client() { FullName = FullName });
+        }
+
+        public void DeleteAuthor(string FullName)
+        {
+            authorService.Delete(new Author() { FullName = FullName });
+        }
+
         public void ShowAllRecords()
         {
             Console.WriteLine("AllRecords");
@@ -66,13 +78,6 @@ namespace ORMLab5.Logic
             {
                 Console.WriteLine($"{book.Id} {book.Title} {book.Language} " +
                     $"{book.PublicationDate.ToShortDateString()} {book.Status}");
-                /*
-                Console.WriteLine($"Authors id {book.Title}: ");
-
-                foreach (var author in book.BookAuthors)
-                    Console.WriteLine($"{author.AuthorId}");
-                Console.WriteLine($"Client id : {book.BookGivenAways[0].ClientCardId}");
-                Console.WriteLine($"ReturnDate : {book.BookGivenAways[0].ReturnDate}");*/
             }
             Console.WriteLine();
 

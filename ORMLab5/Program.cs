@@ -1,4 +1,5 @@
-﻿using ORMLab5.Logic;
+﻿using ORMEnitityFramework;
+using ORMLab5.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,21 @@ namespace ORMLab5
     {
         static void Main(string[] args)
         {
-            MainLogic mainLogic = new MainLogic(new AuthorService(), new ClientService(), new BookService());
-            try
-            {
-                //mainLogic.ShowAllRecords();
-                //mainLogic.ShowFilteredRecords();
-                //mainLogic.ShowFirstPageOfRecords();
-                mainLogic.ShowStatistic();
-            }catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+            using (DatabaseContext databaseContext = new DatabaseContext()) {
+                MainLogic mainLogic = new MainLogic(new AuthorService(databaseContext), 
+                    new ClientService(databaseContext), new BookService(databaseContext));
+                try
+                {
+                    mainLogic.ShowAllRecords();
+                    mainLogic.ShowFilteredRecords();
+                    mainLogic.ShowFirstPageOfRecords();
+                    mainLogic.ShowStatistic();
+                } catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                Console.ReadLine();
             }
-            Console.ReadLine();
         }
 
         private static void Init(MainLogic mainLogic)

@@ -1,6 +1,7 @@
 ﻿using ORMEnitityFramework.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,9 +56,9 @@ namespace ORMLab5.Logic
             bookService.AddBookGivenAway(bookId, clientId, returnDate);
         }
 
-        public void DeleteBook(string Title)
+        public void DeleteBook(string Title, DateTime PublicationDate)
         {
-            bookService.Delete(new Book() { Title = Title });
+            bookService.Delete(new Book() { Title = Title, PublicationDate = PublicationDate });
         }
 
         public void DeleteClient(string FullName)

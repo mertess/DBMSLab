@@ -145,6 +145,10 @@
     <Compile Include="Migrations\20200505162419_init.designer.cs">
       <DependentUpon>20200505162419_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200522073415_indexes.cs" />
+    <Compile Include="Migrations\20200522073415_indexes.designer.cs">
+      <DependentUpon>20200522073415_indexes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />

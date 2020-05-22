@@ -18,6 +18,13 @@ namespace ORMEnitityFramework
             }
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Book>().HasIndex(b => b.Language);
+            modelBuilder.Entity<Client>().HasIndex(c => c.PhoneNumber);
+            modelBuilder.Entity<Author>().HasIndex(a => a.FullName);
+        }
+
         public virtual DbSet<Author> Authors { set; get; }
         public virtual DbSet<Book> Books { set; get; }
         public virtual DbSet<Client> Clients { set; get; }

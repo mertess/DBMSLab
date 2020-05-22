@@ -1,7 +1,9 @@
 ﻿using ORMEnitityFramework;
+using ORMEnitityFramework.Models;
 using ORMLab5.Logic;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +19,10 @@ namespace ORMLab5
                     new ClientService(databaseContext), new BookService(databaseContext));
                 try
                 {
-                    mainLogic.ShowAllRecords();
+                    /*mainLogic.ShowAllRecords();
                     mainLogic.ShowFilteredRecords();
                     mainLogic.ShowFirstPageOfRecords();
-                    mainLogic.ShowStatistic();
+                    mainLogic.ShowStatistic();*/
                 } catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
